@@ -6,16 +6,22 @@ import { createStore } from 'vuex'
 
 // Create a new store instance.
 const store = createStore({
-  state () {
+  state() {
     return {
-      count: 0
+      playerLife: 100,
+      monsterLife: 100,
     }
   },
   mutations: {
-    increment (state) {
-      state.count++
-    }
-  }
+    setPlayerLife(state, life) {
+      state.playerLife = life;
+    },
+    setMonsterLife(state, life) {
+      state.monsterLife = life;
+    },
+  },
+  actions: {},
+  getters: {}
 })
 
 const app = createApp(App)
