@@ -21,10 +21,25 @@ export default {
 </script>
 
 <template>
-    <div v-if="hasResult" class="panel">
+    <div v-if="hasResult" class="panel result">
         <div v-if="monsterLife == 0" class="win">Você ganhou!</div>
         <div v-else class="lose">Você perdeu!</div>
     </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.result {
+    display: flex;
+    justify-content: center;
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.win {
+    color: green;
+}
+
+.lose {
+    color: red;
+}
+</style>
