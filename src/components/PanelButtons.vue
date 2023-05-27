@@ -21,8 +21,27 @@ export default {
             this.setPlayerLife(100)
             this.setRunning(true)
         },
-        endGame(){
+        endGame() {
             this.setRunning(false)
+        },
+        attack(especial) {
+            this.hurt('playerLife', 7, 12, false)
+            this.hurt('monsterLife', 5, 10, false)
+        },
+        hurt(atr, min, max, especial) {
+            const plus = especial ? 5 : 0
+            const hurt = this.getRandon(min + plus, max + plus)
+
+            if (atr == 'playerLife') {
+                this.setPlayerLife(Math.max(this.playerLife - hurt, 0))
+            }
+            if (atr == 'monsterLife') {
+                this.setMonsterLife(Math.max(this.monsterLife - hurt, 0))
+            }
+        },
+        getRandon(min, max) {
+            const value = Math.random() * (max - min) + min
+            return Math.round(value)
         }
     },
 }
@@ -31,8 +50,8 @@ export default {
 <template>
     <div class="panel buttons">
         <template v-if="running">
-            <BaseButton name="Ataque" classBtn="attack" />
-            <BaseButton name="Ataque Especial" classBtn="especial-attack" />
+            <BaseButton @click="attack(false)" name="Ataque" classBtn="attack" />
+            <BaseButton @click="attack(true)" name="Ataque Especial" classBtn="especial-attack" />
             <BaseButton name="Curar" classBtn="heal" />
             <BaseButton @click="endGame" name="Desistir" classBtn="give-up" />
         </template>

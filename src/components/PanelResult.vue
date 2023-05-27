@@ -1,6 +1,6 @@
 <script>
 import PanelScores from './PanelScores.vue';
-import { mapState } from 'vuex';
+import { mapState, mapMutations } from 'vuex';
 
 export default {
     data() {
@@ -12,9 +12,17 @@ export default {
         PanelScores
     },
     computed: {
-        ...mapState(['playerLife', 'monsterLife']),
+        ...mapState(['playerLife', 'monsterLife', 'running']),
         hasResult() {
             return this.playerLife == 0 || this.monsterLife == 0
+        }
+    },
+    methods:{
+        ...mapMutations(['setRunning']),
+    },
+    watch: {
+        hasResult(value){
+            if(value) this.setRunning(false)
         }
     }
 }
