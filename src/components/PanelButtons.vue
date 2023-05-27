@@ -26,7 +26,15 @@ export default {
         },
         attack(especial) {
             this.hurt('playerLife', 7, 12, false)
-            this.hurt('monsterLife', 5, 10, false)
+            this.hurt('monsterLife', 5, 10, especial)
+        },
+        healAndHurt(){
+            this.heal(10, 15)
+            this.hurt('playerLife', 7, 12, false)
+        },
+        heal(min, max){
+            const heal = this.getRandon(min, max)
+            this.setPlayerLife(Math.min(this.playerLife + heal, 100))
         },
         hurt(atr, min, max, especial) {
             const plus = especial ? 5 : 0
@@ -52,7 +60,7 @@ export default {
         <template v-if="running">
             <BaseButton @click="attack(false)" name="Ataque" classBtn="attack" />
             <BaseButton @click="attack(true)" name="Ataque Especial" classBtn="especial-attack" />
-            <BaseButton name="Curar" classBtn="heal" />
+            <BaseButton @click="healAndHurt" name="Curar" classBtn="heal" />
             <BaseButton @click="endGame" name="Desistir" classBtn="give-up" />
         </template>
         <BaseButton v-else @click="startGame" name="Iniciar Jogo" classBtn="new-game" />
