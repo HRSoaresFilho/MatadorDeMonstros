@@ -8,6 +8,7 @@ import { createStore } from 'vuex'
 const store = createStore({
   state() {
     return {
+      running: false,
       playerLife: 100,
       monsterLife: 100,
     }
@@ -18,6 +19,9 @@ const store = createStore({
     },
     setMonsterLife(state, life) {
       state.monsterLife = life;
+    },
+    setRunning(state, newState) {
+      state.running = newState;
     },
   },
   actions: {},
