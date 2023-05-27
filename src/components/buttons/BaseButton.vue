@@ -28,6 +28,7 @@ export default {
     border: none;
     text-transform: uppercase;
     font-size: 1.1rem;
+    cursor: pointer;
 }
 
 .new-game {
