@@ -11,6 +11,7 @@ const store = createStore({
       running: false,
       playerLife: 100,
       monsterLife: 100,
+      logs: []
     }
   },
   mutations: {
@@ -22,6 +23,10 @@ const store = createStore({
     },
     setRunning(state, newState) {
       state.running = newState;
+    },
+    updateLogs(state, newState) {
+      state.logs.unshift(newState);
+      console.log(state.logs);
     },
   },
   actions: {},
