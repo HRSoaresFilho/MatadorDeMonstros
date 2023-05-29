@@ -24,10 +24,13 @@ const store = createStore({
     setRunning(state, newState) {
       state.running = newState;
     },
-    updateLogs(state, newState) {
-      state.logs.unshift(newState);
-      console.log(state.logs);
+    setLogs(state, newState) {
+      state.logs = newState;
     },
+    updateLogs(state, {text, cls}) {
+      state.logs.unshift({text, cls});
+      console.log(state.logs);
+    }
   },
   actions: {},
   getters: {}

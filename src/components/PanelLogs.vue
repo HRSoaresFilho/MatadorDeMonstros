@@ -20,7 +20,13 @@ export default {
 </script>
 
 <template>
-<div v-if="logs.length" class="panel logs">Logs</div>
+<div v-if="logs.length" class="panel logs">
+    <ul>
+        <li v-for="log in logs" :key="log.id" class="log">
+            {{ log.text }}
+        </li>
+    </ul>
+</div>
 </template>
 
 <style scoped>

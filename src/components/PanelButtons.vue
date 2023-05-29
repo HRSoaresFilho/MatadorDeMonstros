@@ -15,11 +15,12 @@ export default {
         ...mapState(['playerLife', 'monsterLife', 'running']),
     },
     methods: {
-        ...mapMutations(['setPlayerLife', 'setMonsterLife', 'setRunning', 'updateLogs']),
+        ...mapMutations(['setPlayerLife', 'setMonsterLife', 'setRunning', 'updateLogs', 'setLogs']),
         startGame() {
             this.setMonsterLife(100)
             this.setPlayerLife(100)
             this.setRunning(true)
+            this.setLogs([])
         },
         endGame() {
             this.setRunning(false)
@@ -32,11 +33,12 @@ export default {
         },
         healAndHurt() {
             this.heal(10, 15)
-            this.hurt('playerLife', 7, 12, false)
+            this.hurt('playerLife', 7, 12, false, 'Monstro', 'Jogador', 'monster')
         },
         heal(min, max) {
             const heal = this.getRandon(min, max)
             this.setPlayerLife(Math.min(this.playerLife + heal, 100))
+            this.updateLogs({text: `Jogador ganhou força de ${heal}`, cls: 'player'})
         },
         hurt(atr, min, max, especial, source, target, cls) {
             const plus = especial ? 5 : 0
@@ -48,7 +50,7 @@ export default {
             if (atr == 'monsterLife') {
                 this.setMonsterLife(Math.max(this.monsterLife - hurt, 0))
             }
-            this.updateLogs(`${source} atingiu ${target} com ${hurt}`, cls)
+            this.updateLogs({text: `${source} atingiu ${target} com ${hurt}`, cls: cls})
         },
         getRandon(min, max) {
             const value = Math.random() * (max - min) + min
