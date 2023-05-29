@@ -3,11 +3,6 @@ import BaseButton from './buttons/BaseButton.vue';
 import { mapState, mapMutations } from 'vuex';
 
 export default {
-    data() {
-        return {
-
-        }
-    },
     components: {
         BaseButton
     },
@@ -63,14 +58,29 @@ export default {
 <template>
     <div class="panel buttons">
         <template v-if="running">
-            <BaseButton @click="attack(false)" name="Ataque" classBtn="attack" />
-            <BaseButton @click="attack(true)" name="Ataque Especial" classBtn="especial-attack" />
-            <BaseButton @click="healAndHurt" name="Curar" classBtn="heal" />
-            <BaseButton @click="endGame" name="Desistir" classBtn="give-up" />
+            <BaseButton @click="attack(false)"
+                        name="Ataque"
+                        classBtn="attack" />
+
+            <BaseButton @click="attack(true)"
+                        name="Ataque Especial"
+                        classBtn="especial-attack" />
+
+            <BaseButton @click="healAndHurt"
+                        name="Curar"
+                        classBtn="heal" />
+
+            <BaseButton @click="endGame"
+                        name="Desistir"
+                        classBtn="give-up" />
         </template>
-        <BaseButton v-else @click="startGame" name="Iniciar Jogo" classBtn="new-game" />
+
+        <BaseButton v-else @click="startGame"
+                           name="Iniciar Jogo"
+                           classBtn="new-game" />
     </div>
 </template>
+
 <style scoped>
 .buttons {
     display: flex;

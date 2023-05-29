@@ -3,11 +3,6 @@ import PanelScores from './PanelScores.vue';
 import { mapState, mapMutations } from 'vuex';
 
 export default {
-    data() {
-        return {
-
-        }
-    },
     components: {
         PanelScores
     },
@@ -30,8 +25,14 @@ export default {
 
 <template>
     <div v-if="hasResult" class="panel result">
-        <div v-if="monsterLife == 0" class="win">Você ganhou!</div>
-        <div v-else class="lose">Você perdeu!</div>
+        <div v-if="monsterLife == 0"
+             class="win">
+             Você ganhou!
+        </div>
+        <div v-else
+             class="lose">
+             Você perdeu!
+        </div>
     </div>
 </template>
 

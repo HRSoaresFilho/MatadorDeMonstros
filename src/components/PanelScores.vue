@@ -16,11 +16,15 @@ export default {
     <div class="panel scores">
         <div class="score">
             <h1>Jogador</h1>
-            <LifeBar :life="playerLife" player="Jogador" :classLife="{ danger: playerLife < 20 }" />
+            <LifeBar :life="playerLife"
+                     player="Jogador"
+                     :classLife="{ danger: playerLife < 20 }" />
         </div>
         <div class="score">
             <h1>Monstro</h1>
-            <LifeBar :life="monsterLife" player="Monstro" :classLife="{ danger: monsterLife < 20 }" />
+            <LifeBar :life="monsterLife"
+                     player="Monstro"
+                     :classLife="{ danger: monsterLife < 20 }" />
         </div>
     </div>
 </template>

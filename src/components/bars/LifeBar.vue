@@ -20,6 +20,7 @@ export default {
     }
 }
 </script>
+
 <template>
     <div class="life-bar">
         <div class="life"
@@ -29,6 +30,7 @@ export default {
     </div>
     <div>{{ life }}%</div>
 </template>
+
 <style scoped>
 .life-bar{
     width: 80%;

@@ -16,11 +16,14 @@ export default {
     }
 }
 </script>
+
 <template>
-    <button class="btn" :class="classBtn">
+    <button class="btn"
+            :class="classBtn">
         {{ name }}
     </button>
 </template>
+
 <style scoped>
 .btn {
     padding: 8px 10px;

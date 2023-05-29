@@ -1,28 +1,20 @@
 <script>
-import { mapState, mapMutations } from 'vuex';
+import { mapState } from 'vuex';
 
 export default {
-    data() {
-        return {
-
-        }
-    },
-    components: {
-
-    },
     computed: {
         ...mapState(['logs']),
-    },
-    methods: {
-
-    },
+    }
 }
 </script>
 
 <template>
     <div v-if="logs.length" class="panel logs">
         <ul>
-            <li v-for="log in logs" :key="log.id" class="log" :class="log.cls">
+            <li v-for="log in logs" 
+                :key="log.id"
+                class="log"
+                :class="log.cls">
                 {{ log.text }}
             </li>
         </ul>

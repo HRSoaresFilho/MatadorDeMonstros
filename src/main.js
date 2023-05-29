@@ -29,11 +29,8 @@ const store = createStore({
     },
     updateLogs(state, {text, cls}) {
       state.logs.unshift({text, cls});
-      console.log(state.logs);
     }
-  },
-  actions: {},
-  getters: {}
+  }
 })
 
 const app = createApp(App)
