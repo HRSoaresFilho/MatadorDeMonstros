@@ -1,6 +1,6 @@
 # O Matador de Monstros
 
-Esse projeto foi realizado com base na aula do Curso Vue JS 2 - O Guia Completo, na UDEMY. O projeto utilizava Vue JS 2 de forma mais simples.
+Esse projeto foi realizado com base na aula do Curso Vue JS 2 - O Guia Completo, na UDEMY. O projeto original utiliza Vue JS 2 de forma mais simples.
 
 Neste projeto, foi utilizado o Vue JS 3 com Vuex.
 
