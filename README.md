@@ -6,6 +6,10 @@ Neste projeto, foi utilizado o Vue JS 3 com Vuex.
 
 O jogo é simples, para fins de estudos e consiste em um jogador que precisa derrotar o monstro, utilizando ataques normais e especiais, além de poder se curar durante o jogo.
 
+## Acesso ao jogo em produção
+
+https://dev-humberto-matador-de-monstros.vercel.app/
+
 ## Configuração do Projeto
 
 ```sh
